@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 import com.couchbase.lite.*;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 
 import java.io.BufferedReader;
@@ -138,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 URL url = null;
                 try {
                     url = new URL(appointment.getTreatments().get(0).getImageUrl());
+                    //Picasso.with(getContext()).load(item.getIcon()).placeholder(R.drawable.default_placeholder).into(holder.imgIcon);
                     //url = new URL("https://img.grouponcdn.com/deal/hZjas5BUUbdLVbbLE13efV/471061181-2048x1229/v1/c700x420.jpg");
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
