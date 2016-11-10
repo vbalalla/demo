@@ -5,25 +5,15 @@ package com.example.vibodha.demo;
  */
 
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by vibodha on 9/26/16.
@@ -67,26 +57,11 @@ public class  ItemAdapter extends ArrayAdapter<Item> {
         }
 
 
-        Item historyItem = data[position];
-        holder.textTreatment.setText(historyItem.getTreatmentName());
-        holder.textDate.setText(historyItem.getDate());
-        holder.textStatus.setText(historyItem.getStatus());
-        holder.image.setImageBitmap(historyItem.getImage());
-
-        switch(historyItem.getStatus()){
-            case "PENDING":
-                holder.textStatus.setTextColor( ContextCompat.getColor(getContext(), R.color.myYellow));
-                holder.relativeLayout.setBackgroundColor( ContextCompat.getColor(getContext(), R.color.myYellow));
-                break;
-            case "ACCEPTED":
-                holder.textStatus.setTextColor( ContextCompat.getColor(getContext(), R.color.myGreen));
-                holder.relativeLayout.setBackgroundColor( ContextCompat.getColor(getContext(), R.color.myGreen));
-                break;
-            case "REJECT":
-                holder.textStatus.setTextColor( ContextCompat.getColor(getContext(), R.color.myRed));
-                holder.relativeLayout.setBackgroundColor( ContextCompat.getColor(getContext(), R.color.myRed));
-        }
-        System.out.println(historyItem.getTreatmentName());
+        Item item = data[position];
+        holder.textTreatment.setText(item.getTreatmentName());
+        holder.textDate.setText(item.getDate());
+        holder.textStatus.setText(item.getStatus());
+        holder.image.setImageBitmap(item.getImage());
         return row;
 
     }

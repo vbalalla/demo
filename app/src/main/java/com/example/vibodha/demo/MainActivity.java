@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
+import com.couchbase.lite.*;
 import com.google.gson.Gson;
 import org.json.JSONException;
 
@@ -25,6 +26,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
+    private Manager manager = null;
+    private Database database = null;
+    final String TAG = "category";
+    private CouchbaseConnection couchbaseConnection;
+    private String DB_NAME = "category";
+    private String url = "http://172.16.1.127:4985/category_sync/";
 
 
     @Override
@@ -34,6 +41,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         new AsyncCaller(this).execute();
+
+        couchbaseConnection = new CouchbaseConnection(this);
+
+        try {
+            manager = couchbaseConnection.getManagerInstance();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            database = couchbaseConnection.getDatabaseInstance(DB_NAME);
+        } catch (CouchbaseLiteException e) {
+            e.printStackTrace();
+        }
+
+        couchbaseConnection.startSync(database, url);
+
+        Query query = database.createAllDocumentsQuery();
+        QueryEnumerator result = null;
+        try {
+            result = query.run();
+        } catch (CouchbaseLiteException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -135,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            //this method will be running on UI thread
+
             int count = 0;
             final ItemAdapter adapter = new ItemAdapter(mContext, R.layout.item_layout, items.toArray(new Item[items.size()]), count);
             System.out.println(items.size());
