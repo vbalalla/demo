@@ -60,6 +60,7 @@ public class  ItemAdapter extends ArrayAdapter<Item> {
         holder.textTreatment.setText(item.getName());
         holder.textDate.setText(item.getDate());
         holder.textStatus.setText(item.getStatus());
+        holder.relativeLayout.setTag(item.get_id());
         Picasso.with(getContext()).load(item.getImage()).placeholder(R.drawable.default_placeholder).into(holder.image);
         return row;
 

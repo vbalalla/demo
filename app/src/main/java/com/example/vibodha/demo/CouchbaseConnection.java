@@ -57,8 +57,8 @@ public class CouchbaseConnection {
         pullReplication.setContinuous(true);
 
         // client - server
-//        Replication pushReplication = database.createPushReplication(syncUrl);
-//        pushReplication.setContinuous(true);
+        Replication pushReplication = database.createPushReplication(syncUrl);
+        pushReplication.setContinuous(true);
 
         // replication listeners
         //pullReplication.addChangeListener();
@@ -67,7 +67,7 @@ public class CouchbaseConnection {
 
         // start both replications
         pullReplication.start();
-//        pushReplication.start();
+        pushReplication.start();
 
     }
 

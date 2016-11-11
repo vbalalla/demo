@@ -12,7 +12,8 @@ public class Item {
     private String date;
     private String Status;
 
-    public Item(String image, String name, String date, String status) {
+    public Item(String _id, String image, String name, String date, String status) {
+        this._id = _id;
         this.image = image;
         this.name = name;
         this.date = date;
@@ -49,5 +50,13 @@ public class Item {
 
     public void setStatus(String status) {
         Status = status;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 }

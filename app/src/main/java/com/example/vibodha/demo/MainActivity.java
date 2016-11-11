@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.*;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.couchbase.lite.*;
 import com.couchbase.lite.View;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements android.view.View
             QueryRow row = it.next();
             Document document = row.getDocument();
 
-            Item item = new Item(document.getProperty("image").toString() , document.getProperty("name").toString(),"Date: " + document.getProperty("date").toString(), document.getProperty("status").toString());
+            Item item = new Item(document.getProperty("_id").toString() ,document.getProperty("image").toString() , document.getProperty("name").toString(),"Date: " + document.getProperty("date").toString(), document.getProperty("status").toString());
             items.add(item);
             final ItemAdapter adapter = new ItemAdapter(this, R.layout.item_layout, items.toArray(new Item[items.size()]));
             listView.setAdapter(adapter);
@@ -72,8 +73,14 @@ public class MainActivity extends AppCompatActivity implements android.view.View
     @Override
     public void onClick(android.view.View v) {
         switch (v.getId()) {
-            case R.id.close_button:
-                System.out.println("dsdsds");
+            case R.id.appointment:
+                try {
+                    Document document = database.getDocument(v.getTag().toString());
+                    document.delete();
+                } catch (CouchbaseLiteException e) {
+                    e.printStackTrace();
+                }
+
                 break;
         }
     }
