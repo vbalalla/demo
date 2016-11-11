@@ -23,7 +23,6 @@ public class  ItemAdapter extends ArrayAdapter<Item> {
     Context context;
     int layoutResourceId;
     Item[] data = null;
-    public int count;
 
     public ItemAdapter(Context context, int layoutResourceId, Item[] data) {
         super(context, layoutResourceId, data);
@@ -46,7 +45,7 @@ public class  ItemAdapter extends ArrayAdapter<Item> {
             holder.textTreatment = (TextView)row.findViewById(R.id.textTreatment);
             holder.textDate = (TextView)row.findViewById(R.id.textDate);
             holder.textStatus = (TextView)row.findViewById(R.id.textStatus);
-            holder.relativeLayout = (RelativeLayout) row.findViewById(R.id.appointment);
+            holder.relativeLayout = (RelativeLayout) row.findViewById(R.id.item);
 
             row.setTag(holder);
         }

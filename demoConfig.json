@@ -1,0 +1,12 @@
+{
+  "interface": ":4986",
+  "adminInterface": ":4987",
+  "log": ["REST"],
+  "databases": {
+    "items": {
+    "server": "http://localhost:8091",
+    "bucket": "items",
+    "sync": `function(doc) {channel(doc.channels);}`
+    }
+  }
+}

@@ -3,14 +3,8 @@ package com.example.vibodha.demo;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.*;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 import com.couchbase.lite.*;
-import com.couchbase.lite.View;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements android.view.View
     @Override
     public void onClick(android.view.View v) {
         switch (v.getId()) {
-            case R.id.appointment:
+            case R.id.item:
                 try {
                     Document document = database.getDocument(v.getTag().toString());
                     document.delete();
