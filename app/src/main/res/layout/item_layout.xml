@@ -7,18 +7,19 @@
                 android:onClick="onClick"
                 android:layout_height="110dp">
 
-        <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/close_button"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:background="#FFFFFF"
-                android:src="@android:drawable/ic_notification_clear_all"/>
+        <!--<ImageButton-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/close_button"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_alignParentEnd="true"-->
+                <!--android:background="#FFFFFF"-->
+                <!--android:src="@android:drawable/ic_notification_clear_all"/>-->
 
         <ImageView
                 android:layout_width="100dp"
+                android:layout_marginLeft="15dp"
                 android:id="@+id/image"
                 android:layout_height="match_parent"
 
@@ -26,44 +27,44 @@
 
         <TextView
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginLeft="150dp"
+                android:layout_height="40dp"
                 android:id="@+id/textTreatment"
                 android:textSize="20dp"
                 android:textColor="#000000"
-                android:paddingTop="5dp"
-        />
+                android:paddingTop="8dp"
+                android:layout_alignRight="@+id/textStatus" android:layout_alignEnd="@+id/textStatus"
+                android:layout_alignLeft="@+id/textDate" android:layout_alignStart="@+id/textDate"/>
         <TextView
                 android:layout_width="100dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="150dp"
-                android:layout_below="@+id/textTreatment"
                 android:paddingTop="2dp"
                 android:textSize="12dp"
                 android:textColor="#000000"
                 android:id="@+id/textDate"
-        />
+                android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:layout_marginLeft="150dp"
-                android:layout_below="@+id/textDate"
+                android:gravity="end"
+                android:layout_marginBottom="5dp"
                 android:textSize="15dp"
                 android:textColor="#000000"
                 android:id="@+id/textEmployee"
-                android:text="Price: $20"
-        />
+                android:text="$20"
+                android:paddingRight="20dp"
+                android:layout_alignBottom="@+id/textTreatment" android:layout_toRightOf="@+id/textTreatment"
+                android:layout_toEndOf="@+id/textTreatment"/>
         <TextView
                 android:layout_width="50dp"
                 android:id="@+id/textSt"
                 android:layout_height="30dp"
-                android:layout_marginLeft="150dp"
-                android:layout_below="@+id/textEmployee"
                 android:textColor="#000000"
                 android:textSize="13dp"
+                android:layout_marginLeft="60dp"
                 android:text="Status :"
-        />
+                android:layout_alignParentBottom="true" android:layout_alignLeft="@+id/textDate"
+                />
         <TextView
                 android:layout_width="70dp"
                 android:id="@+id/textStatus"
@@ -71,6 +72,6 @@
                 android:textStyle="italic"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="13dp"
-                android:layout_below="@+id/textEmployee" android:layout_toRightOf="@+id/textSt"
+                android:layout_alignBottom="@+id/image" android:layout_toRightOf="@+id/textSt"
                 android:layout_toEndOf="@+id/textSt"/>
 </RelativeLayout>
