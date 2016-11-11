@@ -78,21 +78,4 @@ public class CouchbaseConnection {
         return manager;
     }
 
-//    public String createDocument(Database database, Category category ) {
-//        // Create a new document and add data
-//        Document document = database.createDocument();
-//        String documentId = document.getId();
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        map.put("id", category.getCategoryId());
-//        map.put("name", category.getName());
-//        map.put("img", category.getImageUrl());
-//        try {
-//            // Save the properties to the document
-//            document.putProperties(map);
-//        } catch (CouchbaseLiteException e) {
-//            Log.e(TAG, "Error putting", e);
-//        }
-//        return documentId;
-//    }
-
 }
