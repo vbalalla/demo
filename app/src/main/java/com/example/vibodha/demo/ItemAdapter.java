@@ -6,7 +6,6 @@ package com.example.vibodha.demo;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import android.widget.*;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by vibodha on 9/26/16.
@@ -25,12 +25,11 @@ public class  ItemAdapter extends ArrayAdapter<Item> {
     Item[] data = null;
     public int count;
 
-    public ItemAdapter(Context context, int layoutResourceId, Item[] data,int count) {
+    public ItemAdapter(Context context, int layoutResourceId, Item[] data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.data = data;
-        this.count = count;
     }
 
     @Override
@@ -58,10 +57,10 @@ public class  ItemAdapter extends ArrayAdapter<Item> {
 
 
         Item item = data[position];
-        holder.textTreatment.setText(item.getTreatmentName());
+        holder.textTreatment.setText(item.getName());
         holder.textDate.setText(item.getDate());
         holder.textStatus.setText(item.getStatus());
-        holder.image.setImageBitmap(item.getImage());
+        Picasso.with(getContext()).load(item.getImage()).placeholder(R.drawable.default_placeholder).into(holder.image);
         return row;
 
     }

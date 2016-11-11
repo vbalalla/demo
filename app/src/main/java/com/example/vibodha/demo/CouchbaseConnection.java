@@ -4,17 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import com.couchbase.lite.CouchbaseLiteException;
 import com.couchbase.lite.Database;
-import com.couchbase.lite.Document;
 import com.couchbase.lite.Manager;
 import com.couchbase.lite.android.AndroidContext;
 import com.couchbase.lite.replicator.Replication;
-import com.couchbase.lite.util.Log;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * Created by vibodha on 10/10/16.
@@ -82,21 +78,21 @@ public class CouchbaseConnection {
         return manager;
     }
 
-    public String createDocument(Database database, Category category ) {
-        // Create a new document and add data
-        Document document = database.createDocument();
-        String documentId = document.getId();
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("id", category.getCategoryId());
-        map.put("name", category.getName());
-        map.put("img", category.getImageUrl());
-        try {
-            // Save the properties to the document
-            document.putProperties(map);
-        } catch (CouchbaseLiteException e) {
-            Log.e(TAG, "Error putting", e);
-        }
-        return documentId;
-    }
+//    public String createDocument(Database database, Category category ) {
+//        // Create a new document and add data
+//        Document document = database.createDocument();
+//        String documentId = document.getId();
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        map.put("id", category.getCategoryId());
+//        map.put("name", category.getName());
+//        map.put("img", category.getImageUrl());
+//        try {
+//            // Save the properties to the document
+//            document.putProperties(map);
+//        } catch (CouchbaseLiteException e) {
+//            Log.e(TAG, "Error putting", e);
+//        }
+//        return documentId;
+//    }
 
 }

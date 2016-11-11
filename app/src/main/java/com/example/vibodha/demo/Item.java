@@ -6,32 +6,33 @@ import android.graphics.Bitmap;
  * Created by vibodha on 11/10/16.
  */
 public class Item {
-    private Bitmap image;
-    private String treatmentName;
+    private String _id;
+    private String image;
+    private String name;
     private String date;
     private String Status;
 
-    public Item(Bitmap image, String treatmentName, String date, String status) {
+    public Item(String image, String name, String date, String status) {
         this.image = image;
-        this.treatmentName = treatmentName;
+        this.name = name;
         this.date = date;
         Status = status;
     }
 
-    public Bitmap getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
-    public String getTreatmentName() {
-        return treatmentName;
+    public String getName() {
+        return name;
     }
 
-    public void setTreatmentName(String treatmentName) {
-        this.treatmentName = treatmentName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDate() {
